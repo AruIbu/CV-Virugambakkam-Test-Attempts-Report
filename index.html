@@ -357,6 +357,28 @@ main.wrap > .filters{margin-top:0}
 .kpi.lead b{color:var(--accent)}
 .bh h2[data-n]::before{background:var(--accent)!important;color:#fff!important}
 .prog .m span{background:linear-gradient(90deg,var(--accent),#2F64C4)}
+
+/* ---------- class view ---------- */
+#bBubble .bub{stroke:var(--surface);stroke-width:1.5}
+#bBubble .bub.sel{stroke:var(--ink);stroke-width:2.5}
+#bBubble .bub.none{fill:none;stroke:var(--faint);stroke-dasharray:2 2}
+.lgs{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);margin-left:4px}
+.lgs .ramp{display:inline-block;width:92px;height:9px;border-radius:99px}
+.lgs svg{display:inline-block;vertical-align:middle}
+
+/* ---------- explainers ---------- */
+.ibtn{flex:0 0 auto;margin-left:auto;width:27px;height:27px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  font:700 13px/1 inherit;cursor:pointer;align-self:flex-start}
+.ibtn:hover{border-color:var(--accent);color:var(--accent)}
+.ibtn[aria-expanded="true"]{background:var(--accent);border-color:transparent;color:#fff}
+.xpl{margin:0 0 20px;padding:15px 18px 16px;background:var(--track);
+  border-left:3px solid var(--accent);border-radius:0 10px 10px 0}
+.xpl dl{margin:0;display:grid;gap:13px}
+.xpl dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+  color:var(--accent);margin:0 0 3px}
+.xpl dd{margin:0;font-size:13.5px;line-height:1.55;color:var(--ink)}
+@media(min-width:880px){.xpl dl{grid-template-columns:1fr 1fr;gap:14px 32px}}
 </style>
 </head>
 <body>
@@ -381,7 +403,7 @@ main.wrap > .filters{margin-top:0}
     <div class="logo school"><div class="sname"><b>Chinmaya Vidyalaya</b><span>Senior Secondary School</span><span>Virugambakkam</span></div></div>
     <div class="title">
       <h1>Test Attempts Report</h1>
-      <p><span>Chinmaya Vidyalaya Senior Secondary School, Virugambakkam</span><span>Academic year 2026–27</span><span>Data as of <span id="asOf"></span></span></p>
+      <p><span>Chinmaya Vidyalaya Senior Secondary School, Virugambakkam</span><span>Academic year 2026–27</span></p>
     </div>
     <div class="logo edu"><img src="data:image/png;base64,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" alt="EduBrisk"></div>
   </div>
@@ -528,7 +550,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bSummary">
-    <div class="bh"><div><h2 id="hSummary">Summary</h2><p id="pSummary"></p></div></div>
+    <div class="bh"><div><h2 id="hSummary">Summary</h2><p id="pSummary"></p></div><button type="button" class="ibtn" data-x="bSummary" aria-expanded="false" aria-controls="xpl_bSummary" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bSummary" hidden><dl><div><dt>Where this comes from</dt><dd>The platform&#x27;s test-attempt export for Grades 6–10, matched against the class list the school supplied. The export carries one row per attempt, so a student who sat the same test twice is two rows there but one student here.</dd></div><div><dt>What it shows</dt><dd>How many of the students on roll in the current selection have attempted at least one test, and how those attempts divide between a first try and later ones.</dd></div><div><dt>What it does not show</dt><dd>Whether a test was set as classwork or homework or taken voluntarily, and whether a student who did not attempt was absent or simply never opened the platform.</dd></div><div><dt>Who is not in it</dt><dd>Anyone not on the class list the school supplied. An attempt under a name the class list does not carry was set aside rather than guessed at.</dd></div></dl></div>
     <div class="sumgrid">
       <div class="ring" role="img" aria-labelledby="kRateL">
         <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="52" fill="none" stroke-width="11"/><circle class="val" id="ringVal" cx="60" cy="60" r="52" fill="none" stroke-width="11" stroke-linecap="round" stroke-dasharray="0 400"/></svg>
@@ -550,7 +573,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bCharts">
-    <div class="bh"><div><h2>Evidence of impact</h2><p>Across every grade. Click a grade on the left-hand chart to open it.</p></div></div>
+    <div class="bh"><div><h2>Evidence of impact</h2><p>Across every grade. Click a grade on the left-hand chart to open it.</p></div><button type="button" class="ibtn" data-x="bCharts" aria-expanded="false" aria-controls="xpl_bCharts" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bCharts" hidden><dl><div><dt>Where this comes from</dt><dd>The same attempt export. Only students who attempted the same test more than once feed the left-hand chart; the right-hand one counts every student at the end of each month.</dd></div><div><dt>What it shows</dt><dd>Where a second attempt took students — their mark on the first try against the best mark of their later tries — and how the number of students reached grew through the year.</dd></div><div><dt>What it does not show</dt><dd>Cause. A student who chooses to retake a test is usually one who means to do better, so this is the gain on retakes, not proof that the platform alone produced it.</dd></div><div><dt>Who is not in it</dt><dd>Students who attempted every test only once. They are in the reach chart but nowhere in the first-to-second-attempt chart.</dd></div></dl></div>
     <div class="charts">
       <div class="chart">
         <h3>Where a second attempt took students</h3>
@@ -572,7 +596,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bScatter">
-    <div class="bh"><div><h2>Engagement against attainment</h2><p id="pScatter"></p></div></div>
+    <div class="bh"><div><h2>Engagement against attainment</h2><p id="pScatter"></p></div><button type="button" class="ibtn" data-x="bScatter" aria-expanded="false" aria-controls="xpl_bScatter" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bScatter" hidden><dl><div><dt>Where this comes from</dt><dd>Across the bottom: the number of tests the student has attempted, from the platform export. Up the side: the student&#x27;s average internal mark — the school&#x27;s own assessment marks as held in iAspire, not EduBrisk marks.</dd></div><div><dt>What it shows</dt><dd>Whether the students putting in practice on the platform are also the students scoring well in school assessments.</dd></div><div><dt>What it does not show</dt><dd>Cause, in either direction. The dashed lines are the medians of this selection only, so a label such as “Strong and engaged” means above the middle of this group on both counts — not a verdict against any outside standard. Change the grade or section and the lines move with it.</dd></div><div><dt>Who is not in it</dt><dd>Students with no internal mark on record; the number left out is printed under the chart. Students with no attempts are kept, in the lane on the left.</dd></div></dl></div>
     <div class="charts">
       <div class="chart">
         <div class="lg" id="lgScatter"></div>
@@ -587,8 +612,26 @@ main.wrap > .filters{margin-top:0}
     </div>
   </section>
 
+  <section class="block" id="bBubble" hidden>
+    <div class="bh"><div><h2>Class view</h2><p id="pBubble"></p></div><button type="button" class="ibtn" data-x="bBubble" aria-expanded="false" aria-controls="xpl_bBubble" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bBubble" hidden><dl><div><dt>Where this comes from</dt><dd>One bubble per student in the selected section. Position is tests attempted against average internal mark from iAspire; colour is the student&#x27;s average mark on EduBrisk tests; size is time spent on the platform.</dd></div><div><dt>What it shows</dt><dd>Four things about one class at once — who is practising, who is scoring in school, who is scoring on the platform, and who is spending time without it showing in either.</dd></div><div><dt>What it does not show</dt><dd>Size is scaled by rank within the class, not in proportion: a bubble twice the size is not twice the hours, only further up the class. Colour is banded in fifteen-point steps.</dd></div><div><dt>Who is not in it</dt><dd>Students with no internal mark. Students with no EduBrisk mark yet are shown in the palest colour and counted under the chart.</dd></div></dl></div>
+    <div class="charts">
+      <div class="chart">
+        <div class="lg" id="lgBubble"></div>
+        <svg id="svgBubble" role="img" aria-labelledby="pBubble"></svg>
+        <p class="cnote" id="noteBubble"></p>
+      </div>
+      <div class="chart">
+        <h3 id="bbTitle">Student detail</h3>
+        <p class="cs">Select a student on the chart to see their record.</p>
+        <div class="panel" id="bbBody"><div class="pe">No student selected yet.</div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="bSubjects">
-    <div class="bh"><div><h2>Subject-wise participation</h2><p>Click a subject to see its tests.</p></div></div>
+    <div class="bh"><div><h2>Subject-wise participation</h2><p>Click a subject to see its tests.</p></div><button type="button" class="ibtn" data-x="bSubjects" aria-expanded="false" aria-controls="xpl_bSubjects" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bSubjects" hidden><dl><div><dt>Where this comes from</dt><dd>The attempt export, grouped by the subject each test belongs to.</dd></div><div><dt>What it shows</dt><dd>For each subject, how many students on roll have attempted at least one of its tests and how many have attempted none.</dd></div><div><dt>What it does not show</dt><dd>How well students did, and whether the chapters attempted match what the class has actually been taught so far.</dd></div><div><dt>Who is not in it</dt><dd>Subjects a grade has not been given on the platform — they do not appear at all.</dd></div></dl></div>
     <div class="tbl">
       <table class="rowlink">
         <thead><tr><th>Subject</th><th class="r">Chapters</th><th class="r">Tests</th><th class="r">Attempted at least one</th><th class="r">Attempted none</th><th></th></tr></thead>
@@ -598,7 +641,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bLogin" hidden>
-    <div class="bh"><div><h2>Logins and coverage</h2><p id="pLogin"></p></div></div>
+    <div class="bh"><div><h2>Logins and coverage</h2><p id="pLogin"></p></div><button type="button" class="ibtn" data-x="bLogin" aria-expanded="false" aria-controls="xpl_bLogin" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bLogin" hidden><dl><div><dt>Where this comes from</dt><dd>The platform&#x27;s usage export, matched to the class list by name.</dd></div><div><dt>What it shows</dt><dd>How many accounts have been signed into at least once, and how many never have.</dd></div><div><dt>What it does not show</dt><dd>How often or how recently a student signs in. One sign-in in the whole year counts the same as daily use.</dd></div><div><dt>Who is not in it</dt><dd>Students the usage export does not carry — they are counted separately rather than assumed to have never signed in.</dd></div></dl></div>
     <div class="lgrid">
       <div class="lcard"><span>Students in the usage export<small>Matched to this class list</small></span><b id="lN"></b></div>
       <div class="lcard t"><span>Have signed in<small>At least once</small></span><b id="lIn"></b></div>
@@ -614,7 +658,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bSections">
-    <div class="bh"><div><h2>Section-wise participation</h2><p id="pSections"></p></div></div>
+    <div class="bh"><div><h2>Section-wise participation</h2><p id="pSections"></p></div><button type="button" class="ibtn" data-x="bSections" aria-expanded="false" aria-controls="xpl_bSections" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bSections" hidden><dl><div><dt>Where this comes from</dt><dd>The same export, grouped by the section each student sits in on the class list.</dd></div><div><dt>What it shows</dt><dd>Participation section by section for whatever subject or chapter is selected above.</dd></div><div><dt>What it does not show</dt><dd>It does not separate a section that was never set the work from one that was set it and did not do it.</dd></div><div><dt>Who is not in it</dt><dd>Students whose section is blank on the class list.</dd></div></dl></div>
     <div class="tbl">
       <table class="rowlink">
         <thead><tr id="hdSections"></tr></thead>
@@ -624,7 +669,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bLevels">
-    <div class="bh"><div><h2>Achiever-level participation</h2><p id="pLevels"></p></div></div>
+    <div class="bh"><div><h2>Achiever-level participation</h2><p id="pLevels"></p></div><button type="button" class="ibtn" data-x="bLevels" aria-expanded="false" aria-controls="xpl_bLevels" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bLevels" hidden><dl><div><dt>Where this comes from</dt><dd>Achiever levels come from the school&#x27;s internal assessment marks in iAspire. They are not derived from anything on EduBrisk.</dd></div><div><dt>What it shows</dt><dd>Whether participation differs between higher, middle and lower achievers.</dd></div><div><dt>What it does not show</dt><dd>Current standing. The level is fixed from the assessment it was taken from and does not move with platform results.</dd></div><div><dt>Who is not in it</dt><dd>Students with no internal mark on record carry no level, so they sit outside this table — they are still counted everywhere else.</dd></div></dl></div>
     <div class="tbl">
       <table class="rowlink">
         <thead><tr id="hdLevels"></tr></thead>
@@ -635,7 +681,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bGlance" hidden>
-    <div class="bh"><div><h2>Cross-test glance</h2><p id="pGlance"></p></div></div>
+    <div class="bh"><div><h2>Cross-test glance</h2><p id="pGlance"></p></div><button type="button" class="ibtn" data-x="bGlance" aria-expanded="false" aria-controls="xpl_bGlance" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bGlance" hidden><dl><div><dt>Where this comes from</dt><dd>Every attempt on the tests in the selected chapter. A filled cell holds the best mark of that student&#x27;s attempts.</dd></div><div><dt>What it shows</dt><dd>One row per student across all the tests in a chapter, so the gaps show up in a single view.</dd></div><div><dt>What it does not show</dt><dd>How many attempts produced the mark shown, or when it was taken.</dd></div><div><dt>Who is not in it</dt><dd>No one. Every student on roll in the selection has a row, whether they have taken anything or not.</dd></div></dl></div>
     <div class="gwrap"><table class="glance">
       <thead><tr id="hdGlance"></tr></thead>
       <tbody id="tGlance"></tbody>
@@ -648,7 +695,8 @@ main.wrap > .filters{margin-top:0}
   </section>
 
   <section class="block" id="bTests">
-    <div class="bh"><div><h2>Test-wise participation</h2><p id="pTests"></p></div></div>
+    <div class="bh"><div><h2>Test-wise participation</h2><p id="pTests"></p></div><button type="button" class="ibtn" data-x="bTests" aria-expanded="false" aria-controls="xpl_bTests" title="About this section">i</button></div>
+    <div class="xpl" id="xpl_bTests" hidden><dl><div><dt>Where this comes from</dt><dd>The attempt export, grouped by individual test.</dd></div><div><dt>What it shows</dt><dd>How many students attempted each test in the current selection, and how many did not.</dd></div><div><dt>What it does not show</dt><dd>Whether the test was assigned, and how long students were given.</dd></div><div><dt>Who is not in it</dt><dd>Tests nobody has attempted. The export is built from attempts, so a test with none does not appear.</dd></div></dl></div>
     <div class="tbl">
       <table class="rowlink">
         <thead><tr id="hdTests"></tr></thead>
@@ -794,7 +842,7 @@ const SEP = '\u001f';
 /* a test is identified by its chapter as well as its name */
 const tkey = (a) => a.subj + SEP + a.chap + SEP + a.test;
 const grades = Object.keys(roster).sort((a, b) => a - b);
-$('asOf').textContent = DATA.META[grades[0]].downloaded;
+
 
 /* S.subj = '' means all subjects, S.test = '' means all tests */
 const ALLG = 'ALL';
@@ -1022,6 +1070,7 @@ function render() {
   }
   drawLevels(single);
   if (typeof drawScatter === 'function') drawScatter();
+  if (typeof drawBubble === 'function') drawBubble();
   const scoped = single || !!(S.subj && S.chap);
   $('bSummary').hidden = !scoped;
   $('noChap').hidden = scoped;
@@ -1405,7 +1454,7 @@ function drawImpact() {
   const acc = DATA.ACCOUNTS || {};
   $('impactSub').textContent =
     `Whole school · Grade ${STATS.grades[0]}–${STATS.grades[STATS.grades.length - 1]} · `
-    + `academic year 2026–27, to ${DATA.META[STATS.grades[0]].downloaded}.`;
+    + `academic year 2026–27.`;
   const tiles = [
     ['lead', '+' + gain.toFixed(1), 'point gain on a retaken test',
       `${nf.format(S2.improved)} of ${nf.format(S2.pairs)} retakes scored higher (${pct(S2.improved / S2.pairs)})`],
@@ -1503,7 +1552,7 @@ function drawReach() {
   $('csReach').textContent =
     `Students who had attempted at least one test by the end of each month — ${nf.format(c[0][1])} in `
     + `${c[0][0]}, ${nf.format(last[1])} by ${last[0]}.`;
-  $('noteReach').textContent = `The final point covers a part month, to ${DATA.META[STATS.grades[0]].downloaded}.`;
+  $('noteReach').textContent = 'The final point covers a part month.';
 }
 
 /* ---------- engagement vs attainment ---------- */
@@ -1537,13 +1586,13 @@ function drawScatter() {
   const svg = $('svgScatter');
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.replaceChildren();
 
-  const withH = usable.filter((p) => p.hrs > 0).map((p) => p.hrs);
+  const withH = usable.filter((p) => p.tests > 0).map((p) => p.tests);
   const maxH = Math.max(1, ...withH);
   const xs = (v) => (v > 0 ? P0 + 14 + Math.sqrt(v / maxH) * (W - P0 - R - 14) : L + GUT / 2);
   const ys = (v) => H - B - (v / 100) * (H - T - B);
   const med = (arr) => { if (!arr.length) return 0; const a = [...arr].sort((p, q) => p - q);
     return a.length % 2 ? a[(a.length - 1) / 2] : (a[a.length / 2 - 1] + a[a.length / 2]) / 2; };
-  /* "engaged" = at or above the median among students who have any recorded time */
+  /* "engaged" = at or above the median among students who have attempted anything */
   const mh = med(withH), ma = med(usable.map((p) => p.ach));
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
@@ -1555,21 +1604,21 @@ function drawScatter() {
   /* the gutter, kept visually apart so a zero is never mistaken for "a little" */
   svg.append(sv('line', { x1: P0, x2: P0, y1: T - 6, y2: H - B, stroke: 'var(--line)', 'stroke-width': 1 }));
   const gl = sv('text', { x: L + GUT / 2, y: H - B + 16, 'text-anchor': 'middle', class: 'cy' });
-  gl.textContent = 'no hours'; svg.append(gl);
+  gl.textContent = 'none'; svg.append(gl);
   if (mh > 0) svg.append(sv('line', { x1: xs(mh), x2: xs(mh), y1: T - 6, y2: H - B, class: 'cmed' }));
   svg.append(sv('line', { x1: P0, x2: W - R, y1: ys(ma), y2: ys(ma), class: 'cmed' }));
 
-  const quadOf = (p) => (p.ach >= ma ? (p.hrs >= mh && p.hrs > 0 ? 0 : 1) : (p.hrs >= mh && p.hrs > 0 ? 2 : 3));
+  const quadOf = (p) => (p.ach >= ma ? (p.tests >= mh && p.tests > 0 ? 0 : 1) : (p.tests >= mh && p.tests > 0 ? 2 : 3));
   const counts = [0, 0, 0, 0];
   usable.forEach((p) => counts[quadOf(p)]++);
 
-  usable.slice().sort((a, b) => a.hrs - b.hrs).forEach((p) => {
+  usable.slice().sort((a, b) => a.tests - b.tests).forEach((p) => {
     const q = quadOf(p);
-    const cx = clamp(xs(p.hrs) + jit(p.name, p.hrs > 0 ? 12 : GUT - 14), L + 7, W - R - 7);
+    const cx = clamp(xs(p.tests) + jit(p.name, p.tests > 0 ? 12 : GUT - 14), L + 7, W - R - 7);
     const cy = clamp(ys(p.ach) + jit(p.sec + p.name, 6), T, H - B);
     const c = sv('circle', { cx, cy, r: 5.5, fill: QUAD[q][1], 'fill-opacity': '.92',
       class: 'dot' + (selStudent === p.name ? ' sel' : ''), tabindex: '0', role: 'button',
-      'aria-label': `${p.name}, grade ${p.g}, ${hm(p.hrs)}, ${h1(p.ach)} percent` });
+      'aria-label': `${p.name}, grade ${p.g}, ${p.tests} attempts, ${h1(p.ach)} percent` });
     const t = sv('title');
     t.textContent = `${p.name} \u00b7 Grade ${p.g} ${p.sec} \u00b7 ${hm(p.hrs)} \u00b7 ${h1(p.ach)}% \u00b7 ${p.tests} attempts`;
     c.append(t);
@@ -1578,9 +1627,9 @@ function drawScatter() {
     svg.append(c);
   });
   const xl = sv('text', { x: (P0 + W - R) / 2, y: H - 12, 'text-anchor': 'middle', class: 'cx' });
-  xl.textContent = 'Hours on the platform \u2192'; svg.append(xl);
-  const yl = sv('text', { x: L - 8, y: T - 12, 'text-anchor': 'end', class: 'cy' });
-  yl.textContent = 'Average mark'; svg.append(yl);
+  xl.textContent = 'Tests attempted \u2192'; svg.append(xl);
+  const yl = sv('text', { x: 2, y: T - 12, 'text-anchor': 'start', class: 'cy' });
+  yl.textContent = 'Average internal mark'; svg.append(yl);
 
   /* counts live in the legend, so the plot stays free of text that would sit on the dots */
   const lg = $('lgScatter'); lg.replaceChildren();
@@ -1593,23 +1642,25 @@ function drawScatter() {
   $('pScatter').textContent =
     (S.g === ALLG ? 'Every student in the school'
                   : 'Grade ' + S.g + (S.sec ? ', Section ' + S.sec : ''))
-    + ` \u2014 time on the platform against the average internal mark. `
+    + ` \u2014 tests attempted against the average internal mark. `
     + `Click a student to see their record.`;
 
   $('noteScatter').textContent =
     `${usable.length} of ${pts.length} students in this selection have an internal mark to plot. `
-    + `Dashed lines mark the median mark and the median time among students with recorded hours`
-    + (mh > 0 ? ` (${h1(mh)} h)` : '') + `. Students with no recorded time sit in the lane on the left. `
+    + `Dashed lines mark the median mark and the median number of tests attempted`
+    + (mh > 0 ? ` (${h1(mh)})` : '') + `. Students who have attempted nothing sit in the lane on the left. `
     + `Points are nudged slightly so that students on the same figures stay separately clickable.`;
 }
 
 function clearStudent() {
-  $('spTitle').textContent = 'Student detail';
-  $('spBody').replaceChildren(el('div', 'pe', 'No student selected yet.'));
+  const titleId = 'spTitle', bodyId = 'spBody';
+  $(titleId).textContent = 'Student detail';
+  $(bodyId).replaceChildren(el('div', 'pe', 'No student selected yet.'));
 }
-function showStudent(p) {
-  $('spTitle').textContent = p.name;
-  const b = $('spBody'); b.replaceChildren();
+function showStudent(p, titleId, bodyId) {
+  titleId = titleId || 'spTitle'; bodyId = bodyId || 'spBody';
+  $(titleId).textContent = p.name;
+  const b = $(bodyId); b.replaceChildren();
   b.append(el('div', 'pn', p.name), el('div', 'pm', `Section ${p.sec}${p.band ? ' · ' + TAG[p.band] : ''}`));
   const g = el('div', 'pg');
   const add = (lab, val) => { const d = el('div'); d.append(el('i', null, lab), el('b', null, val)); g.append(d); };
@@ -1802,7 +1853,7 @@ function drawLogins() {
   $('lIn').textContent = nf.format(signed);
   $('lOut').textContent = nf.format(rows.length - signed - unknown);
   $('lCov').textContent = avail ? pct(took / avail) : '—';
-  $('pLogin').textContent = `${where()} · as reported by the platform on ${LOGIN.captured}`;
+  $('pLogin').textContent = `${where()} · as reported by the platform`;
 
   const tb = $('tLogin'); tb.replaceChildren();
   uniq(rows.map((r) => r[1])).sort(secSort).forEach((sec) => {
@@ -1955,7 +2006,7 @@ $('defTea').textContent = (HAS_HOURS
   $('kTsO').textContent = tnf.format(obs);
   $('kTsA').textContent = avg.toFixed(1) + '%';
   $('kTsV').textContent = `${vg} · ${tpc(vg / n)}`;
-  $('tsSub').textContent = `${T.META.basis} · ${T.META.filter} · captured ${T.META.captured}`;
+  $('tsSub').textContent = `${T.META.basis} · ${T.META.filter}`;
   const partial = T.META.partial && T.META.counter && T.META.counter > n;
   $('tsNote').textContent = (partial
     ? `The school has ${tnf.format(T.META.counter)} teachers on TeachScope, but the capture this report is built`
@@ -2082,6 +2133,150 @@ if (!HAS_TS_EARLY) {
 }
 setSource(true);
 setRole(true);
+
+/* ---------------------------------------------------------------- class view (bubble) */
+/* EduBrisk mark per student: the best mark of each test they took, averaged. */
+const EBMARK = (function () {
+  const acc = {};
+  att.forEach((a) => {
+    let best = null;
+    (a.tries || []).forEach((t) => {
+      const m = /^\s*(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*$/.exec(String(t[1] || ''));
+      if (m && +m[2]) { const pc = 100 * (+m[1]) / (+m[2]); if (best === null || pc > best) best = pc; }
+    });
+    if (best === null) return;
+    const k = a.g + '|' + a.sec + '|' + a.name;
+    (acc[k] = acc[k] || []).push(best);
+  });
+  const out = {};
+  for (const k in acc) out[k] = acc[k].reduce((x, y) => x + y, 0) / acc[k].length;
+  return out;
+})();
+
+/* a single-hue ramp, light to dark, for the EduBrisk mark */
+const EBRAMP = ['#DCE4F2', '#A9BEE0', '#6D8FC8', '#3C62A6', '#1B3F7A'];
+const ebColour = (v) => (v == null ? 'var(--track)'
+  : EBRAMP[Math.min(EBRAMP.length - 1, Math.max(0, Math.floor((v - 40) / 15)))]);
+
+let bbSel = null;
+function drawBubble() {
+  const on = S.g !== ALLG && !!S.sec;
+  $('bBubble').hidden = !on;
+  if (!on) return;
+
+  const pts = (STATS.roll[S.g] || []).filter((s) => s.sec === S.sec).map((s) => {
+    const k = S.g + '|' + s.sec + '|' + s.n;
+    const b = DATA.BAND[k] || {};
+    return { name: s.n, sec: s.sec, ach: b.avg != null ? b.avg : null,
+             hrs: hoursOf(S.g, s.sec, s.n),
+             tests: att.filter((a) => a.g === S.g && a.sec === s.sec && a.name === s.n).length,
+             eb: EBMARK[k] != null ? EBMARK[k] : null, band: b.all || null, sc: b.score || {} };
+  });
+  const usable = pts.filter((p) => p.ach != null);
+  if (usable.length < 3) { $('bBubble').hidden = true; return; }
+
+  const W = 560, H = 390, L = 46, R = 18, T = 26, B = 52;
+  const svg = $('svgBubble');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.replaceChildren();
+
+  const maxT = Math.max(1, ...usable.map((p) => p.tests));
+  const xs = (v) => L + 10 + (v / maxT) * (W - L - R - 20);
+  const ys = (v) => H - B - (v / 100) * (H - T - B);
+
+  /* Size runs on rank, not on hours: 157 hours against 2 would otherwise draw one bubble
+     eighty times the area of another and make everything else unreadable. */
+  const hrsSorted = usable.map((p) => p.hrs).filter((h) => h > 0).sort((a, b) => a - b);
+  const rank = (h) => {
+    if (!h || !hrsSorted.length) return 0;
+    let i = hrsSorted.findIndex((v) => v >= h);
+    if (i < 0) i = hrsSorted.length - 1;
+    return hrsSorted.length === 1 ? 1 : i / (hrsSorted.length - 1);
+  };
+  const RMIN = 5, RMAX = 13;
+  const rad = (h) => (h > 0 ? RMIN + (RMAX - RMIN) * Math.sqrt(rank(h)) : 4);
+
+  [0, 25, 50, 75, 100].forEach((t) => {
+    svg.append(sv('line', { x1: L, x2: W - R, y1: ys(t), y2: ys(t), class: 'cgrid' }));
+    const lb = sv('text', { x: L - 8, y: ys(t) + 4, 'text-anchor': 'end', class: 'cy' });
+    lb.textContent = t + '%'; svg.append(lb);
+  });
+  for (let t = 0; t <= maxT; t += Math.max(1, Math.ceil(maxT / 6))) {
+    const lb = sv('text', { x: xs(t), y: H - B + 16, 'text-anchor': 'middle', class: 'cy' });
+    lb.textContent = t; svg.append(lb);
+  }
+
+  /* biggest first so a small bubble is never hidden underneath a large one */
+  usable.slice().sort((a, b) => rad(b.hrs) - rad(a.hrs)).forEach((p) => {
+    const c = sv('circle', {
+      cx: xs(p.tests), cy: ys(p.ach), r: rad(p.hrs),
+      fill: p.eb == null ? 'var(--track)' : ebColour(p.eb), 'fill-opacity': '.9',
+      class: 'bub' + (p.eb == null ? ' none' : '') + (bbSel === p.name ? ' sel' : ''),
+      tabindex: '0', role: 'button',
+      'aria-label': `${p.name}, ${p.tests} attempts, ${h1(p.ach)} percent internal`,
+    });
+    const t = sv('title');
+    t.textContent = `${p.name}\n${p.tests} tests attempted · internal ${h1(p.ach)}%`
+      + (p.eb != null ? ` · EduBrisk ${h1(p.eb)}%` : ' · no EduBrisk mark')
+      + (p.hrs > 0 ? ` · ${h1(p.hrs)} h` : ' · no recorded time');
+    c.append(t);
+    c.onclick = () => { bbSel = p.name; drawBubble(); showStudent(p, 'bbTitle', 'bbBody'); };
+    c.onkeydown = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.onclick(); } };
+    svg.append(c);
+  });
+
+  const xl = sv('text', { x: (L + W - R) / 2, y: H - 12, 'text-anchor': 'middle', class: 'cx' });
+  xl.textContent = 'Tests attempted →'; svg.append(xl);
+  const yl = sv('text', { x: 2, y: T - 12, 'text-anchor': 'start', class: 'cy' });
+  yl.textContent = 'Average internal mark'; svg.append(yl);
+
+  /* legend: the colour ramp, then three sizes */
+  const lg = $('lgBubble'); lg.replaceChildren();
+  const ramp = el('span', 'lgs');
+  const bar = el('span', 'ramp');
+  bar.style.background = `linear-gradient(90deg, ${EBRAMP.join(',')})`;
+  ramp.append(document.createTextNode('EduBrisk mark'), bar,
+    document.createTextNode('low → high'));
+  const sizes = el('span', 'lgs');
+  const ssvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  ssvg.setAttribute('width', '74'); ssvg.setAttribute('height', '28');
+  [[12, RMIN], [34, (RMIN + RMAX) / 2], [60, RMAX]].forEach(([cx, r]) => {
+    ssvg.append(sv('circle', { cx, cy: 14, r, fill: 'none', stroke: 'var(--faint)' }));
+  });
+  sizes.append(document.createTextNode('Time on platform'), ssvg,
+    document.createTextNode('less → more'));
+  lg.append(ramp, sizes);
+
+  const noEb = usable.filter((p) => p.eb == null).length;
+  const noH = usable.filter((p) => !p.hrs).length;
+  $('pBubble').textContent = `Grade ${S.g}, Section ${S.sec} — every student in the class, `
+    + `by tests attempted and internal mark. Click a bubble for their record.`;
+  $('noteBubble').textContent =
+    `${usable.length} of ${pts.length} students in this class have an internal mark to plot. `
+    + `Colour is the average mark on EduBrisk tests; size is time on the platform, scaled by rank `
+    + `so one heavy user does not dwarf the class.`
+    + (noEb ? ` ${noEb} student${noEb === 1 ? ' has' : 's have'} taken no test, shown as an open circle.` : '')
+    + (noH ? ` ${noH} ${noH === 1 ? 'has' : 'have'} no recorded time and take the smallest size.` : '');
+}
+
+/* ---------------------------------------------------------------- explainers */
+(function () {
+  const KEY = 'eb-xpl';
+  let open = {};
+  try { open = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  document.querySelectorAll('.ibtn').forEach((b) => {
+    const id = b.getAttribute('data-x');
+    const p = document.getElementById('xpl_' + id);
+    if (!p) return;
+    const set = (v) => { b.setAttribute('aria-expanded', v ? 'true' : 'false'); p.hidden = !v; };
+    set(!!open[id]);
+    b.addEventListener('click', () => {
+      const v = p.hidden;
+      set(v);
+      open[id] = v;
+      try { localStorage.setItem(KEY, JSON.stringify(open)); } catch (e) {}
+    });
+  });
+})();
 </script>
 </body>
 </html>
